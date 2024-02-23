@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1094970623910",
+    "project_id": "community-app-dhruv-3000",
+    "storage_bucket": "community-app-dhruv-3000.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094970623910:android:c63149e7a33f642194b167",
+        "android_client_info": {
+          "package_name": "com.example.community_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFEHjMAznKWoqHq5KLw6yPU6Aml1wrYXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
