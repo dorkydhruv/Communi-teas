@@ -7,6 +7,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class Authenticator {
+  const Authenticator();
   UserId? get userId => FirebaseAuth.instance.currentUser?.uid;
   bool get userLoggedIn => userId != null;
   String get userDisplayName =>
@@ -49,8 +50,7 @@ class Authenticator {
   }
 
   Future<AuthResult> loginWithGoogle() async {
-    final GoogleSignIn googleSignIn =
-        GoogleSignIn(scopes: [Constants.emailScope]);
+    final GoogleSignIn googleSignIn = GoogleSignIn();
     final signInAccount = await googleSignIn.signIn();
     if (signInAccount == null) {
       return AuthResult.aborted;
