@@ -40,9 +40,12 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     if (res == AuthResult.success && userId != null) {
       await saveUserInfo(userId: userId);
     }
-    state = AuthState(result: res, isLoading: false, userId: userId);
+    state = AuthState(
+      result: res,
+      isLoading: false,
+      userId: userId,
+    );
   }
-  //6:08
 
   Future<void> saveUserInfo({required UserId userId}) =>
       _userInfoStorage.saveUserInfo(

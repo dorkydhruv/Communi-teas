@@ -1,8 +1,11 @@
 import 'package:community_app/firebase_options.dart';
-import 'package:community_app/state/auth/backend/authenticator.dart';
+import 'package:community_app/state/auth/providers/auth_provider.dart';
+import 'package:community_app/state/auth/providers/is_logged_in.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import "dart:developer" as developer show log;
+
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 extension Log on Object {
   void log() => developer.log(toString());
@@ -13,7 +16,9 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(const ProviderScope(
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -29,34 +34,64 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       themeMode: ThemeMode.dark,
-      home: const MyHomePage(),
+      home: Consumer(builder: ((context, ref, child) {
+        final isLoggedIn = ref.watch(isLoggedInProvider);
+        return isLoggedIn ? const MainView() : const LoginView();
+      })),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+//loggedin
+class MainView extends StatelessWidget {
+  const MainView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        TextButton(
-            onPressed: () async {
-              final res = await Authenticator().loginWithGoogle();
-              res.log();
-            },
-            child: const Text("Sign In with Google")),
-        TextButton(
-            onPressed: () async {
-              final res = await Authenticator().logInWithFacebook();
-              res.log();
-            },
-            child: const Text("Sign In with Facebook"))
-      ],
-    ));
+      appBar: AppBar(
+        title: const Text('Community App'),
+      ),
+      body: Consumer(
+        builder: (context, ref, child) => TextButton(
+          child: const Text("Log Out"),
+          onPressed: () async {
+            ref.read(authStateProvider.notifier).logOut();
+          },
+        ),
+      ),
+    );
+  }
+}
+
+//When not logged in
+class LoginView extends StatelessWidget {
+  const LoginView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+      ),
+      body: Consumer(
+        builder: (context, ref, child) => Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+                onPressed: () async => await ref
+                    .read(authStateProvider.notifier)
+                    .loginWithGoogle(),
+                child: const Text("Sign In with Google")),
+            TextButton(
+                onPressed: () async => await ref
+                    .read(authStateProvider.notifier)
+                    .loginWithFacebook(),
+                child: const Text("Sign In with Facebook"))
+          ],
+        ),
+      ),
+    );
   }
 }
