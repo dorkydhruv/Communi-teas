@@ -18,8 +18,8 @@ class AuthState {
         isLoading = false,
         userId = null;
 
-  AuthState copyWithIsLoading(bool isLoading) =>
-      AuthState(result: result, isLoading: isLoading, userId: userId);
+  AuthState copyWithIsLoading(bool isLoadig) =>
+      AuthState(result: result, isLoading: isLoadig, userId: userId);
 
   @override
   bool operator ==(covariant AuthState other) =>
