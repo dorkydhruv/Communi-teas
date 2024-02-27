@@ -1,6 +1,7 @@
 import 'package:community_app/firebase_options.dart';
 import 'package:community_app/state/auth/providers/auth_provider.dart';
 import 'package:community_app/state/auth/providers/is_logged_in.dart';
+import 'package:community_app/views/components/loading/loading_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import "dart:developer" as developer show log;
@@ -48,12 +49,13 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // LoadingScreen.instance().show(context: context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Community App'),
       ),
       body: Consumer(
-        builder: (context, ref, child) => TextButton(
+        builder: (_, ref, child) => TextButton(
           child: const Text("Log Out"),
           onPressed: () async {
             ref.read(authStateProvider.notifier).logOut();
