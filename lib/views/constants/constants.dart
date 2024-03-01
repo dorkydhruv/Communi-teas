@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 
 @immutable
 class Strings {
-  static const appName = 'Communi-teas';
-  static const welcomeToAppName = 'Welcome to \n${Strings.appName} 🍵';
+  static const appName = 'Communi-teas 🍵';
+  static const welcomeToAppName = 'Welcome to \n${Strings.appName} ';
   static const youHaveNoPosts =
       'You have not made a post yet. Press either the video-upload or the photo-upload buttons to the top of the screen in order to upload your first post!';
   static const noPostsAvailable =

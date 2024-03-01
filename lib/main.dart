@@ -4,6 +4,7 @@ import 'package:community_app/state/auth/providers/is_logged_in.dart';
 import 'package:community_app/state/providers/is_loading_provider.dart';
 import 'package:community_app/views/components/loading/loading_screen.dart';
 import 'package:community_app/views/login/login_view.dart';
+import 'package:community_app/views/main/main_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -48,29 +49,6 @@ class MyApp extends StatelessWidget {
         final isLoggedIn = ref.watch(isLoggedInProvider);
         return isLoggedIn ? const MainView() : const LoginView();
       })),
-    );
-  }
-}
-
-//loggedin
-class MainView extends StatelessWidget {
-  const MainView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // LoadingScreen.instance().show(context: context);
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Community App'),
-      ),
-      body: Consumer(
-        builder: (_, ref, child) => TextButton(
-          child: const Text("Log Out"),
-          onPressed: () async {
-            ref.read(authStateProvider.notifier).logOut();
-          },
-        ),
-      ),
     );
   }
 }
