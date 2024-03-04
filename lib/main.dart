@@ -1,5 +1,4 @@
 import 'package:community_app/firebase_options.dart';
-import 'package:community_app/state/auth/providers/auth_provider.dart';
 import 'package:community_app/state/auth/providers/is_logged_in.dart';
 import 'package:community_app/state/providers/is_loading_provider.dart';
 import 'package:community_app/views/components/loading/loading_screen.dart';

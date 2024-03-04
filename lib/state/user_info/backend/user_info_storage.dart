@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:community_app/state/constansts/firebase_collection_names.dart';
 import 'package:community_app/state/constansts/firebase_field_name.dart';
 import 'package:community_app/state/post/typedefs/user_id.dart';
-import 'package:community_app/state/user_info/user_info_payload.dart';
+import 'package:community_app/state/user_info/models/user_info_payload.dart';
 import 'package:flutter/material.dart';
 
 @immutable
