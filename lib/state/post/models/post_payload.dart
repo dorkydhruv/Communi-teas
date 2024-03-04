@@ -14,7 +14,7 @@ class PostPayload extends MapView<String, dynamic> {
     required String message,
     required String thumbnailUrl,
     required String fileUrl,
-    required FileType fileTye,
+    required String fileTye,
     required String fileName,
     required double aspecTRatio,
     required String thumbnailStorageId,

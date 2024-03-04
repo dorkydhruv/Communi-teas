@@ -8,21 +8,16 @@ class PostGridView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(10),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        mainAxisExtent: 8,
-        crossAxisSpacing: 8,
-      ),
-      itemBuilder: (context, index) {
-        final post = posts.elementAt(index);
-        return PostThumbailView(
+    return ListView.builder(
+        itemBuilder: (context, index) {
+          final post = posts.elementAt(index);
+          return PostThumbailView(
             post: post,
             onTap: () {
-              //post detail view
-            });
-      },
-    );
+              //open post
+            },
+          );
+        },
+        itemCount: posts.length);
   }
 }

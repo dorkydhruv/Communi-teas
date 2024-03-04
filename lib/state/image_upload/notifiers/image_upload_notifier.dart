@@ -80,18 +80,16 @@ class ImageUploadNotifier extends StateNotifier<IsLoading> {
       final thumbnailUploadtask =
           await thumbnailRef.putData(thumbnailUInt8List);
       final thumbnailStorageId = thumbnailUploadtask.ref.name;
-
       //upload original file to firebase storage
       final originalFileUploadTask = await originalFileRef.putFile(file);
       final originalFileStorageId = originalFileUploadTask.ref.name;
-
       //post payload
       final postPayload = PostPayload(
           userId: userId,
           message: message,
           thumbnailUrl: await thumbnailRef.getDownloadURL(),
           fileUrl: await originalFileRef.getDownloadURL(),
-          fileTye: fileType,
+          fileTye: fileType.collectionName,
           fileName: filename,
           aspecTRatio: await thumbnailAspectRatio,
           thumbnailStorageId: thumbnailStorageId,
