@@ -7,6 +7,6 @@ class LogoutDialog extends AlertDialogModel<bool> {
   LogoutDialog()
       : super(
             title: Strings.logOut,
-            message: Strings.areYouSureYouWantToLogOut,
+            message: Strings.areYouSureThatYouWantToLogOutOfTheApp,
             buttons: {Strings.cancel: false, Strings.logOut: true});
 }
