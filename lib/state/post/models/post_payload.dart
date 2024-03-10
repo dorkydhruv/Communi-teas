@@ -1,7 +1,5 @@
 import 'dart:collection';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:community_app/state/image_upload/model/file_type.dart';
 import 'package:community_app/state/post/models/post_key.dart';
 import 'package:community_app/state/post/typedefs/user_id.dart';
 import 'package:community_app/state/post_setting/models/post_setting.dart';
