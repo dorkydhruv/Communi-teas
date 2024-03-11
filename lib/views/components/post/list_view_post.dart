@@ -1,6 +1,5 @@
 import 'package:community_app/state/post/models/post.dart';
 import 'package:community_app/views/components/post/post_thumbnail_view.dart';
-import 'package:community_app/views/post_comments_/post_comments.dart';
 import 'package:flutter/material.dart';
 
 class PostGridView extends StatelessWidget {
@@ -16,8 +15,6 @@ class PostGridView extends StatelessWidget {
             post: post,
             onTap: () {
               //open post
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (_) => PostCommentView(postId: post.postId)));
             },
           );
         },

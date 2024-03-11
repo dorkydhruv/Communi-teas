@@ -24,22 +24,30 @@ class PostThumbailView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                  color: Colors.grey[500],
-                ),
-                child: post.fileType == FileType.image
-                    ? Image.network(
-                        post.fileUrl,
-                        height: 200,
-                        fit: BoxFit.fitWidth,
-                      )
-                    : const Icon(
-                        Icons.play_arrow,
-                        size: 200,
-                      ),
-              ),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Colors.grey[500],
+                  ),
+                  child: post.fileType == FileType.image
+                      ? Image.network(
+                          post.fileUrl,
+                          height: 200,
+                          fit: BoxFit.fitWidth,
+                        )
+                      : Stack(
+                          children: [
+                            Image.network(
+                              post.thumbnailUrl,
+                              height: 200,
+                              fit: BoxFit.fitWidth,
+                            ),
+                            const Icon(
+                              Icons.play_arrow,
+                              size: 200,
+                            ),
+                          ],
+                        )),
               const SizedBox(
                 height: 8,
               ),
