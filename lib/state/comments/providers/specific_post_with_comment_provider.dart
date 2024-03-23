@@ -60,8 +60,9 @@ final specificPostWithCommentProvider = StreamProvider.autoDispose
 
   ref.onDispose(() {
     controller.close();
+    commentsSub.cancel();
+    postSub.cancel();
   });
-  commentsSub.cancel();
-  postSub.cancel();
+
   return controller.stream;
 });
