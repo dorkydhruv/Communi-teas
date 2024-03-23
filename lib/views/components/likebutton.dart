@@ -31,9 +31,9 @@ class LikeButton extends ConsumerWidget {
                   LikeDislikeRequest(postId: postId, likedBy: userId);
               ref.read(likeDislikePostProvider(likeRequest));
             },
-            icon: FaIcon(hasLiked
-                ? FontAwesomeIcons.solidHeart
-                : FontAwesomeIcons.heart));
+            icon: Icon(
+              hasLiked ? Icons.favorite : Icons.favorite_border,
+            ));
       },
       error: (error, stackTrace) => const SmallErrorAnimationView(),
       loading: () => const Center(
