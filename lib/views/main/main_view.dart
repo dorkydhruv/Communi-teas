@@ -7,6 +7,7 @@ import 'package:community_app/views/components/dialogs/alert.dart';
 import 'package:community_app/views/components/dialogs/logout_dialogs.dart';
 import 'package:community_app/views/constants/constants.dart';
 import 'package:community_app/views/create_new_post/create_new_post.dart';
+import 'package:community_app/views/tab/search_view/search_view.dart';
 import 'package:community_app/views/tab/user_posts/user_posts_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -93,7 +94,7 @@ class _MainViewState extends ConsumerState<MainView> {
         body: const TabBarView(
           children: [
             UserPostView(),
-            UserPostView(),
+            SearchView(),
             UserPostView(),
           ],
         ),
