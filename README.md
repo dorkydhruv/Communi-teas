@@ -45,4 +45,5 @@ Run your app using flutter run.
 
 ![App Screenshot](https://github.com/dorkydhruv/community-app/blob/main/assets/WhatsApp%20Image%202024-04-01%20at%209.47.23%20PM.jpeg)
 
-
+## APK file
+![APK FILE](https://drive.google.com/file/d/1pJG0u0vHSWmhOaEK04btOXjq6AW5_KrE/view?usp=sharing)
